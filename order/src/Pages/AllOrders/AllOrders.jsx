@@ -1,58 +1,30 @@
 import { Link } from 'react-router-dom';
 import classes from './AllOrders.module.css';
+import { useEffect, useState } from 'react';
+import getAllOrders from '../../services/api/getAllOrders';
 
 const AllOrders = () => {
-  const orders = [
-    {
-      PurchaseOrderTypeAbbreviation: 'P0',
-      PurchaseOrderNo: 2,
-      PurchaseOrderId: 89
-    },
-    {
-      PurchaseOrderTypeAbbreviation: 'P1',
-      PurchaseOrderNo: 3,
-      PurchaseOrderId: 88
-    },
-    {
-      PurchaseOrderTypeAbbreviation: 'P2',
-      PurchaseOrderNo: 5,
-      PurchaseOrderId: 8
-    },
-    {
-      PurchaseOrderTypeAbbreviation: 'P3',
-      PurchaseOrderNo: 6,
-      PurchaseOrderId: 45
-    },
-    {
-      PurchaseOrderTypeAbbreviation: 'P4',
-      PurchaseOrderNo: 7,
-      PurchaseOrderId: 82
-    },
-    {
-      PurchaseOrderTypeAbbreviation: 'P5',
-      PurchaseOrderNo: 8,
-      PurchaseOrderId: 1
-    },
-    {
-      PurchaseOrderTypeAbbreviation: 'P6',
-      PurchaseOrderNo: 7,
-      PurchaseOrderId: 9
-    }
-  ];
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getAllOrders();
+      if (data) setOrders(data);
+    };
+    getData();
+  }, []);
   return (
     <>
       <h1 className={classes.heading}>Orders</h1>
-      <ul className={classes.container}>
+      <div className={classes.container}>
         {orders.map((order) => {
           return (
-            <li key={order.PurchaseOrderId}>
-              <Link
-                to={`/orders/${order.PurchaseOrderId}`}
-              >{`${order.PurchaseOrderTypeAbbreviation} - ${order.PurchaseOrderNo}`}</Link>
-            </li>
+            <Link
+              key={order.id}
+              to={`/orders/${order.id}`}
+            >{`${order.PurchaseOrderTypeAbbreviation} - ${order.PurchaseOrderNo}`}</Link>
           );
         })}
-      </ul>
+      </div>
     </>
   );
 };

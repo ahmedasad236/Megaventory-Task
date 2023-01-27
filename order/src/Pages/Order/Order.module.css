@@ -15,32 +15,38 @@
     margin-bottom: 1rem;
 }
 
-.info {
-
-}
 
 .info li {
     list-style: none;
     padding: 1rem;
-    background-color: var(--background-color);
+    background-color: cadetblue;
     margin-bottom: 1rem;
     transition: all 0.2s;
 }
 
+.info li:hover .info-value {
+    color: rgb(216, 36, 36);
+    font-weight: 400;
+}
+
 .info li:hover {
-    background-color: cadetblue;
+    background-color: var(--background-color);
 }
 
 .info-key {
     font-size: 1.8rem;
     font-weight: 600;
     margin-right: 4px;
+
 }
 
 .info-value {
     font-size: 1.6rem;
-    font-weight: 400;
+    color: var(--text-color);
+    transition: all 0.2s;
+
 }
+
 
 .table {
     border-collapse: collapse;
@@ -64,6 +70,23 @@
     /* border: 1px solid #ddd; */
     padding: 1rem;
     text-align: center;
+}
+
+.back-btn {
+    padding: 0.8rem;
+    color: var(--text-color);
+    margin: 2rem;
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    font-weight: 700;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #51c9f1;
 }
 
 tr:nth-child(even) {background-color: #f2f2f2;}
