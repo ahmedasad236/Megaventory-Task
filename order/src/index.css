@@ -1,8 +1,15 @@
+:root {
+  --primary-color: #00ABE4;
+  --background-color: #E9F1FA;
+  --text-color: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 
 html {
   font-size: 62.5%;
@@ -17,8 +24,19 @@ body {
 }
 
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  html {
+    font-size: 40%;
+  }
 }
