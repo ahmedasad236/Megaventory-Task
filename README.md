@@ -17,6 +17,8 @@ This task is about purchase orders page, which display the orders and their deta
 ## How to start
 >  git clone git@github.com:ahmedasad236/Megaventory-Task.git
 
+> create a .env file in the top module **order** and put the next line in it **REACT_APP_BASE_URL=http://localhost:3004**
+
 >  cd Megaventory-Task/order
 
 >  npm install
